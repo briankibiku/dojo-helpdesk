@@ -3,7 +3,9 @@ import React from 'react'
 
 async function getTickets() {
     const resp = await fetch('http://localhost:4000/tickets', {
-
+        next: {
+            revalidate: 0 // instruct next js not to cache data
+        }
     })
     return resp.json()
 }
